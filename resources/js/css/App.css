@@ -1,0 +1,27 @@
+.backlogin {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../images/background-blur-clean-clear-531880.jpg');
+}
+
+.left-out-enter{
+  opacity:0;
+  transform:translateX(100%)
+}
+
+.left-out-enter-active{
+  opacity:1;
+  transform:translateX(0)
+}
+
+.left-out-exit{
+  opacity:1;
+  transform:translateX(100%)
+}
+
+.left-out-exit-active{
+  opacity:0;
+  transform:translateX(0%)
+}
+
