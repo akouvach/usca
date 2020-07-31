@@ -1,1 +1,0 @@
-SELECT * FROM `information_schema`.`innodb_trx` ORDER BY `trx_started`
