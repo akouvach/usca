@@ -9,7 +9,7 @@ class Conexion {
     private $port = 3306;
     private $user = "root";
     private $pass = "";
-    private $dbName =  "participemos";
+    private $dbName =  "usca";
     private $charset = "utf8";
 
     protected $pdo ;
