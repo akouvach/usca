@@ -20,69 +20,105 @@ import "react-toastify/dist/ReactToastify.css";
 import App from "./components/App";
 
 class Router extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: false,
-      usuarioId: null,
-      email: "",
-      nombre: "",
-      apellido: "",
-    };
-  }
-
-  signedInRoutes() {
-    if (this.state.isLoggedIn) {
-      return (
-        <Route
-          to="/grupos/agregar"
-          render={() => {
-            return <h1> Agregar grupos</h1>;
-          }}
-        ></Route>
-      );
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: false,
+            usuarioId: null,
+            email: "",
+            nombre: "",
+            apellido: ""
+        };
     }
-  }
 
-  home() {
-    if (this.state.isLoggedIn) return MiCanasta;
-    else return Inicio;
-  }
+    signedInRoutes() {
+        if (this.state.isLoggedIn) {
+            return (
+                <Route
+                    to="/grupos/agregar"
+                    render={() => {
+                        return <h1> Agregar grupos</h1>;
+                    }}
+                ></Route>
+            );
+        }
+    }
 
-  render() {
-    return (
-      <ReactRouter>
-        <ToastContainer autoClose={3000} />
-        <App>
-          <div className="w3-row">
-            <Switch>
-              <Route exact path="/" component={this.home()}></Route>
-              <Route exact path="/login" component={Login}></Route>
-              <Route exact path="/registro" component={Registro}></Route>
-              <Route exact path="/contacto" component={Contacto}></Route>
+    home() {
+        if (this.state.isLoggedIn) return MiCanasta;
+        else return Inicio;
+    }
 
-              <Route
-                exact
-                path="/grupo/edit/:idGrupo"
-                component={GrupoAdd}
-              ></Route>
+    render() {
+        return (
+            <ReactRouter>
+                <ToastContainer autoClose={3000} />
+                <App>
+                    <div className="w3-row">
+                        <Switch>
+                            <Route
+                                exact
+                                path="/"
+                                component={this.home()}
+                            ></Route>
+                            <Route
+                                exact
+                                path="/login"
+                                component={Login}
+                            ></Route>
+                            <Route
+                                exact
+                                path="/registro"
+                                component={Registro}
+                            ></Route>
+                            <Route
+                                exact
+                                path="/contacto"
+                                component={Contacto}
+                            ></Route>
 
-              <Route exact path="/grupo/:idGrupo" component={Grupo}></Route>
-              <Route exact path="/grupos/add" component={GrupoAdd}></Route>
-              <Route exact path="/grupos" component={Grupos}></Route>
+                            <Route
+                                exact
+                                path="/grupo/edit/:idGrupo"
+                                component={GrupoAdd}
+                            ></Route>
 
-              <Route exact path="/buscar" component={Buscar}></Route>
+                            <Route
+                                exact
+                                path="/grupo/:idGrupo"
+                                component={Grupo}
+                            ></Route>
+                            <Route
+                                exact
+                                path="/grupos/add"
+                                component={GrupoAdd}
+                            ></Route>
+                            <Route
+                                exact
+                                path="/grupos"
+                                component={Grupos}
+                            ></Route>
 
-              <Route exact path="/logout" component={Logout}></Route>
+                            <Route
+                                exact
+                                path="/buscar"
+                                component={Buscar}
+                            ></Route>
 
-              {this.signedInRoutes()}
-              <Route component={NotFoundPage}></Route>
-            </Switch>
-          </div>
-        </App>
-      </ReactRouter>
-    );
-  }
+                            <Route
+                                exact
+                                path="/logout"
+                                component={Logout}
+                            ></Route>
+
+                            {this.signedInRoutes()}
+                            <Route component={NotFoundPage}></Route>
+                        </Switch>
+                    </div>
+                </App>
+            </ReactRouter>
+        );
+    }
 }
 
 export default Router;
